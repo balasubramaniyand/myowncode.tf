@@ -9,7 +9,7 @@ resource "aws_instance" "web" {                                         #this na
   key_name               = "07"                                         # mension your pem key and your local available key
 
   tags = {
-    Name = "HelloWorld"
+    Name = "balaweb"
   }
 }
  this my partices time creation for ec2 instances
