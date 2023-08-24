@@ -1,0 +1,16 @@
+
+# full instances creation by terraform
+resource "aws_instance" "web" {                                         #this name and tags
+  ami           = data.aws_ami.ubuntu.id                                #application and os images
+  instance_type = "t2.micro"                                            # instance type
+  subnet_id     = aws_subnet.example.id                                 # mension the subnet on your vpc
+  vpc_security_group_ids = [aws_security_group.example_sg.id]           # mesnion the your public security group id 
+  allocation_public_ip   = ture                                         # this mension your own vpc creation time you will mension for public ip
+  key_name               = "07"                                         # mension your pem key and your local available key
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+ this my partices time creation for ec2 instances
+ 
