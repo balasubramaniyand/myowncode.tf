@@ -13,4 +13,6 @@ resource "aws_instance" "web" {                                         #this na
   }
 }
  this my partices time creation for ec2 instances
- 
+
+
+only get terraform providers terraform.io
