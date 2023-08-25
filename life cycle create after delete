@@ -1,0 +1,60 @@
+# terraform block
+terraform {
+  required_providers {
+    aws ={
+      source="hashicorp/aws"
+      version="~>3.0"
+    }    
+  }
+}
+# provider block
+provider "aws" {
+  region= "ap-south-1"
+  profile="default" 
+}
+
+#resourecs block
+resource "aws_instance" "bala" {
+  ami = "ami-0f5ee92e2d63afc18" #ubuntu
+  instance_type ="t2.micro"
+  availability_zone ="ap-south-1a"
+  tags= {
+    Name ="bala"
+  }
+    lifecycle {
+   create_before_destroy = true   # frist create next delete
+   create_before_destroy = false  #this a default first delete 
+  }
+}
+
+
+  
+# terraform block
+terraform {
+  required_providers {
+    aws ={
+      source="hashicorp/aws"
+      version="~>3.0"
+    }    
+  }
+}
+# provider block
+provider "aws" {
+  region= "ap-south-1"
+  profile="default" 
+}
+
+#resourecs block
+resource "aws_instance" "bala" {
+  ami = "ami-0da59f1af71ea4ad2"
+  instance_type ="t2.micro"
+  availability_zone ="ap-south-1a"
+  tags= {
+    Name ="bala"
+  }
+   # lifecycle {
+  # create_before_destroy = true
+  }
+
+
+  
