@@ -25,7 +25,7 @@ acl = "private"
 
 tags={
     enviroment = each.key   #my
-    bucketname = "${each.key}-${each.value}"
+    bucketname = "${each.key}-${each.value}" #  my-bucket-bala,ok-bucket-7770960 ,worng-bucket-00325tn,
     eachvalue = each.value  # this bucket
 
 }
