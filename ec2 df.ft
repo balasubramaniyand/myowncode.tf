@@ -20,3 +20,33 @@ resource "aws_instance" "bala" {
     name = "bala"
   }
 }
+
+
+100 % this code work
+-------------------
+-------------------
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~>3.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "ap-south-1"
+}
+
+data "aws_vpc" "default" {
+  default = true
+}
+resource "aws_instance" "bala" {
+  ami           = "ami-0da59f1af71ea4ad2"
+  instance_type = "t2.micro"
+  key_name  = "777"
+
+  tags = {
+    Name = "bala"
+  }
+}
