@@ -1,0 +1,40 @@
+# list variables.tf
+variable "ec2_instance_type" {
+    type =list (string)
+    #             0             1        2
+    default = [ "t3.micro","t3.small","t3.large" ] # useing variables multilevel values use
+  
+}
+
+#  main.tf   
+resource "aws_instance" "bala" {
+    ami =var.ec2_ami_id
+    instance_type= var.ec2_instance_type
+    count = var.ec2_instance_count
+    tags ={
+        Name = "bala"
+    }
+  
+}
+
+# provider.tf
+
+# terraform block
+terraform {
+  required_providers {
+    aws ={
+      source = "hashicorp/aws"
+      version = "~>3.0"
+    }
+  }
+}
+#provider block
+provider "aws" {
+  region =var.aws_regions_mumbai[5]
+  profile = "default"
+}
+
+# terraform.tfvars
+
+ec2_instance_count = 15
+ec2_instance_type=t3.small
